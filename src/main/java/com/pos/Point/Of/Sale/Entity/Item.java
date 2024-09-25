@@ -10,16 +10,19 @@ public class Item {
     private Long id;
     @Column(length = 100, nullable = false, unique = true) private String name;
     @Column(name = "stock", nullable = false) private int quantity;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false) private Category category;
     @Column(name = "buying_price", nullable = false) private double buyingPrice;
     @Column(name = "selling_price", nullable = false) private double sellingPrice;
 
     public Item() {}
 
-    public Item(String name, int quantity, double buyingPrice, double sellingPrice) {
+    public Item(String name, int quantity, double buyingPrice, double sellingPrice, Category category) {
         this.name = name;
         this.quantity = quantity;
         this.buyingPrice = buyingPrice;
         this.sellingPrice = sellingPrice;
+        this.category = category;
     }
 
     public Long getId() {
@@ -60,5 +63,13 @@ public class Item {
 
     public void setSellingPrice(double sellingPrice) {
         this.sellingPrice = sellingPrice;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
