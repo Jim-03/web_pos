@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sale</title>
+    <link rel="stylesheet" th:href="@{/CSS/index.css}">
+    <link rel="stylesheet" href="../static/CSS/index.css">
+</head>
+<body>
+    <header>
+        <h1 id="heading">Welcome</h1>
+        <nav>
+            <a href="http://localhost:8080/item/add">Add new Item</a>
+        </nav>
+    </header>
+<main>
+    <section id="input-section">
+        <form method="post">
+            <h2 class="details">Customer Details</h2>
+            <label for="customer-name">Name:</label>
+            <input type="text" name="customer-name" id="customer-name">
+            <label for="customer-phone">Phone number:</label>
+            <input type="tel" name="customer-phone" id="customer-phone">
+            <button id="addCustomer" class="add-buttons">Add</button>
+            <h2 class="details">Item Details</h2>
+            <label for="item-name">Name:</label>
+            <input type="text" name="item-name" id="item-name">
+            <label for="item-quantity">Quantity:</label>
+            <input type="number" name="item-quantity" id="item-quantity" placeholder="1">
+            <button id="addItem" class="add-buttons">Add</button>
+            <h2 class="details">Pricing</h2>
+            <label for="total-price">Total Price:</label>
+            <output id="total-price">00.00</output>
+            <label for="price-paid">Paid:</label>
+            <input type="number" name="price-paid" id="price-paid">
+            <label for="remainder">Remains</label>
+            <output id="remainder">00.00</output>
+            <label for="debt">Debt:</label>
+            <output id="debt">00.00</output>
+            <button type="submit" class="add-buttons">Sell</button>
+        </form>
+    </section>
+    <section id="table-section">
+        <table id="items-table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total Price</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </section>
+</main>
+<footer><h1 id="footing">POS@2024</h1></footer>
+    <script th:src="@{/JS/index.js}"></script>
+</body>
+</html>
