@@ -1,17 +1,23 @@
 package com.pos.Point.Of.Sale.Service;
 
 import com.pos.Point.Of.Sale.CustomResponse;
+import com.pos.Point.Of.Sale.Entity.Category;
 import com.pos.Point.Of.Sale.Entity.Item;
+import com.pos.Point.Of.Sale.Repository.CategoryRepository;
 import com.pos.Point.Of.Sale.Repository.ItemRepository;
 import com.pos.Point.Of.Sale.Status;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Objects;
+
 @Service
 public class ItemService {
     @Autowired
     private ItemRepository repository;
+    @Autowired private CategoryRepository categoryRepository;
 
     /**
      * Adds a new item to the database
@@ -66,20 +72,26 @@ public class ItemService {
      * @return a custom response depending on the outcome
      */
     @Transactional
-    public CustomResponse updateItem(Item newItem) {
+    public CustomResponse updateItem(Item newItem, String initialName) {
         // Check if new data is empty
         if (newItem == null) {
             return new CustomResponse(Status.REJECTED, "Can't update to empty data");
         }
+        // Check if initial name is empty
+        if (initialName == null || initialName.trim().isEmpty()) {
+            return new CustomResponse(Status.REJECTED, "Please provide the item's initial name");
+        }
         // Attempt updating the item
         try{
             // Fetch the old data
-            Item oldItem = repository.findByName(newItem.getName());
+            Item oldItem = repository.findByName(initialName);
             // Check if the item exists
             if (oldItem == null) {
                 return new CustomResponse(Status.ABSENT, "The specified item doesn't exist");
             }
             // Update the item
+            oldItem.setName(newItem.getName());
+            oldItem.setCategory(newItem.getCategory());
             oldItem.setBuyingPrice(newItem.getBuyingPrice());
             oldItem.setQuantity(newItem.getQuantity());
             oldItem.setSellingPrice(newItem.getSellingPrice());
@@ -112,6 +124,34 @@ public class ItemService {
             return new CustomResponse(Status.SUCCESS, "Item was successfully deleted");
         } catch (Exception e) {
             return new CustomResponse(Status.ERROR, "An error occurred while deleting the item: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Retrieves all the items belonging to a category
+     * @return a list of items
+     */
+    public CustomResponse getAll(Long id) {
+        try {
+            // Fetch data from the database
+            List<Item> items = repository.findAll();
+            Category category = categoryRepository.findById(id).get();
+            // Check if list is empty
+            if (items.isEmpty()) {
+                return new CustomResponse(Status.ABSENT, "No items are saved in the database");
+            }
+            // Filter out items
+            items.removeIf(item -> !Objects.equals(item.getCategory().getId(), id));
+            // Check if the category has items
+            if (items.isEmpty()) {
+                return new CustomResponse(Status.ABSENT, "The category " + category.getName() + " doesn't have any items stored");
+            }
+            CustomResponse response = new CustomResponse(Status.SUCCESS, "The category's items were found");
+            response.setItems(items);
+            return response;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new CustomResponse(Status.ERROR, "An error occurred while fetching the items: " + e.getMessage());
         }
     }
 }
