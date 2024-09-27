@@ -13,14 +13,31 @@ header {
     height: 15vh;
     align-content: center;
 }
+header nav {
+    background-color: blue;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 header h1 {
     top: 0;
     text-align: center;
+    height: 50%;
 }
 header nav a{
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: large;
+    background-color: rgb(204, 204, 255);
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+header nav a:hover{
+    transition-duration: 1s;
+    background-color: red;
+    text-decoration: underline;
 }
 main {
     height: 80vh;
