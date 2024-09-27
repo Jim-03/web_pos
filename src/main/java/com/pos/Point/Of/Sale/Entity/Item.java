@@ -10,7 +10,7 @@ public class Item {
     private Long id;
     @Column(length = 100, nullable = false, unique = true) private String name;
     @Column(name = "stock", nullable = false) private int quantity;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id", nullable = false) private Category category;
     @Column(name = "buying_price", nullable = false) private double buyingPrice;
     @Column(name = "selling_price", nullable = false) private double sellingPrice;
