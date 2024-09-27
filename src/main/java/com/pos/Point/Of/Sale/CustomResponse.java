@@ -11,6 +11,7 @@ public class CustomResponse {
     private Item item;
     private Category category;
     private List<Category> categories;
+    private List<Item> items;
 
     public CustomResponse(Status status, String message) {
         this.status = status;
@@ -18,6 +19,7 @@ public class CustomResponse {
         this.item = null;
         this.category = null;
         this.categories = null;
+        this.items = null;
     }
 
     public Status getStatus() {
@@ -58,5 +60,13 @@ public class CustomResponse {
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }
