@@ -9,4 +9,7 @@ public class SellHTMLController {
     public String sellHTML() {
         return "index";
     }
+
+    @GetMapping("/sold")
+    public String soldHtml() { return "sell";}
 }
