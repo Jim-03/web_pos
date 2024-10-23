@@ -3,6 +3,7 @@ package com.pos.Point.Of.Sale;
 import com.pos.Point.Of.Sale.Entity.Category;
 import com.pos.Point.Of.Sale.Entity.Customer;
 import com.pos.Point.Of.Sale.Entity.Item;
+import com.pos.Point.Of.Sale.Entity.Sell;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public class CustomResponse {
     private List<Item> items;
     private Customer customer;
     private List<Customer> customerList;
+    private Sell sell;
+    private List<Sell> sellList;
 
     public CustomResponse(Status status, String message) {
         this.status = status;
@@ -25,6 +28,8 @@ public class CustomResponse {
         this.items = null;
         this.customer = null;
         this.customerList = null;
+        this.sell = null;
+        this.sellList = null;
     }
 
     public Status getStatus() {
@@ -89,5 +94,21 @@ public class CustomResponse {
 
     public void setCustomerList(List<Customer> customerList) {
         this.customerList = customerList;
+    }
+
+    public Sell getSell() {
+        return sell;
+    }
+
+    public List<Sell> getSellList() {
+        return sellList;
+    }
+
+    public void setSellList(List<Sell> sellList) {
+        this.sellList = sellList;
+    }
+
+    public void setSell(Sell sell) {
+        this.sell = sell;
     }
 }
