@@ -16,7 +16,7 @@ public class CustomerService {
     private CustomerRepository repository;
 
     private Boolean isPresent(String phone) {
-        return repository.existsByPhone(phone);
+        return repository.findByPhone(phone) != null;
     }
 
     @Transactional
