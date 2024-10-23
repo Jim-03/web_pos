@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <title>Sale</title>
     <link rel="stylesheet" th:href="@{/CSS/index.css}">
-    <link rel="stylesheet" href="../static/CSS/index.css">
 </head>
 <body>
     <header>
         <h1 id="heading">Welcome</h1>
         <nav>
             <a href="http://localhost:8080/item/add">Add new Item</a>
+            <a href="http://localhost:8080/inventory">View inventory</a>
+            <a href="http://localhost:8080/sold">View Sells</a>
         </nav>
     </header>
 <main>
@@ -33,11 +34,12 @@
             <output id="total-price">00.00</output>
             <label for="price-paid">Paid:</label>
             <input type="number" name="price-paid" id="price-paid">
+            <button id="sendPayment">Process Payment</button>
             <label for="remainder">Remains</label>
             <output id="remainder">00.00</output>
-            <label for="debt">Debt:</label>
+            <label for="debt">Change:</label>
             <output id="debt">00.00</output>
-            <button type="submit" class="add-buttons">Sell</button>
+            <button type="submit" class="add-buttons" id="sellButton">Sell</button>
         </form>
     </section>
     <section id="table-section">
@@ -46,8 +48,8 @@
             <tr>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Quantity</th>
                 <th>Price</th>
+                <th>Quantity</th>
                 <th>Total Price</th>
             </tr>
             </thead>

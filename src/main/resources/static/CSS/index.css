@@ -94,3 +94,12 @@ footer {
     height: 5vh;
     text-align: center;
 }
+
+tr {
+    height: auto;
+}
+
+td {
+    text-align: center;
+    border: 1px solid black;
+}
