@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Item</title>
+    <link rel="stylesheet" th:href="@{/CSS/new-item.css}">
+    <link rel="stylesheet" href="../static/CSS/new-item.css">
+</head>
+<body>
+    <header>
+        <h1 id="heading">Add New Item</h1>
+        <nav>
+            <a href="http://localhost:8080/inventory">View inventory</a>
+            <a href="http://localhost:8080/sold">View Sells</a>
+            <a href="http://localhost:8080/">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h2 id="form-heading">Enter the new item's details</h2>
+        <form id="item-form">
+            <label for="item-name">Name:</label>
+            <input type="text" name="item-name" id="item-name" required placeholder="Enter the item's name">
+            <label for="item-category">Category:</label>
+            <select name="item-category" id="item-category">
+                <option id="other">New</option>
+            </select>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" placeholder="Number of Items">
+            <label for="buying-price">Buying Price:</label>
+            <input type="number" id="buying-price" placeholder="Enter the item's buying price">
+            <label for="selling-price">Selling Price:</label>
+            <input type="number" id="selling-price" placeholder="Enter the item's selling price">
+            <button type="submit" id="submit-button">Add</button>
+        </form>
+    </main>
+    <footer>
+        <h1 id="footing">POS@2024</h1>
+    </footer>
+    <script th:src="@{/JS/new-item.js}"></script>
+</body>
+</html>

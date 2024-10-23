@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{CSS/update-item.css}">
+    <title>Update Item</title>
+</head>
+<body>
+    <header>
+        <h1 id="heading">Updating:</h1>
+        <input type="text" placeholder="Search for item" id="search-text">
+        <button id="search-button">Search</button>
+    </header>
+    <main>
+    <section id="initial-data">
+        <h2>Initial data</h2>
+        <label>Name:</label>
+        <output id="initial-name"></output>
+        <label>Category:</label>
+        <output id="initial-category"></output>
+        <label>Stock:</label>
+        <output id="initial-quantity"></output>
+        <label>Buying Price:</label>
+        <output id="initial-buying-price"></output>
+        <label>Selling Price:</label>
+        <output id="initial-selling-price"></output>
+    </section>
+    <section id="New-data">
+        <h2>New Data</h2>
+        <label>Name:</label>
+        <input type="text" id="new-name">
+        <label>Category:</label>
+        <select id="new-category">
+            <option id="other">New</option>
+            </select>
+        <label>Stock:</label>
+        <input type="number"  id="new-quantity">
+        <label>Buying Price:</label>
+        <input type="number"  id="new-buying-price">
+        <label>Selling Price:</label>
+        <input type="number"  id="new-selling-price">
+        <button id="submit-button">UPDATE</button>
+    </section>
+    </main>
+    <footer>
+        <h1>POS@2024</h1>
+    </footer> 
+    <script th:src="@{JS/update-item.js}"></script>
+</body>
+</html>

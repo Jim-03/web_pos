@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header, footer{
+    background-color: red;
+    color: white;
+}
+header h1, footer h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+header{
+    height: 15vh;
+    align-content: center;
+}
+header nav {
+    background-color: blue;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header nav a{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+    background-color: rgb(204, 204, 255);
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+header nav a:hover{
+    transition-duration: 1s;
+    background-color: red;
+    text-decoration: underline;
+}
+main {
+    height: calc(100vh - 20vh);
+    background-color: rgb(255, 240, 240);
+}
+main h2 {
+    text-align: center;
+    padding: 20px;
+}
+form {
+    background-color: white;
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: auto;
+    height: 85%;
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+form label, form input, form select{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 5vh;
+}
+form button{
+    height: 5vh;
+    width: 30%;
+    align-self: center;
+    background-color: red;
+}
+footer {
+    height: 5vh;
+}
