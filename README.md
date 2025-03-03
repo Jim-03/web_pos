@@ -5,7 +5,7 @@
 3. [Technologies](#3-technologies)
    - [Backend](#31-backend)
    - [Frontend](#32-frontend)
-   - [Database](#33-backend)
+   - [Database](#33-database)
 4. [Requirements](#4-requirements)
 5. [Installation](#5-installation)
 
@@ -25,7 +25,7 @@ This is a basic web based point of sale system built using Java as the backend l
 ## 3.2. Frontend
 - HTML and CSS for the UI
 - Vanilla JavaScript for frontend interactivity
-## 3.3. Backend
+## 3.3. Database
 - MySQL database
 
 # 4. Requirements
